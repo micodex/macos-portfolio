@@ -1,3 +1,6 @@
+import FinderApps from "./components/apps/Finder";
+import FinderApp from "./components/apps/finder/FinderApp";
+import NoteApp from "./components/apps/NoteApp";
 import TerminalApp from "./components/apps/TerminalApp";
 
 export interface AppConfig {
@@ -14,17 +17,17 @@ export const appsConfig: AppConfig[] = [
     id: "finder",
     title: "Finder",
     icon: "finder.webp",
-    width: 500,
-    height: 350,
-    component: "Files App",
+    width: 1040,
+    height: 600,
+    component: <FinderApp />,
   },
   {
     id: "safari",
     title: "Safari",
     icon: "safari.webp",
-    width: 700,
-    height: 500,
-    component: "<SafariApp />",
+    width: 1040,
+    height: 600,
+    component: "Safari app",
   },
   {
     id: "terminal",
@@ -48,7 +51,7 @@ export const appsConfig: AppConfig[] = [
     icon: "notes.webp",
     width: 500,
     height: 350,
-    component: "Notes",
+    component: <NoteApp />,
   },
   {
     id: "settings",

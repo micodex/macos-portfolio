@@ -16,49 +16,6 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-export const navLinks = [
-  {
-    id: 1,
-    name: "Projects",
-    type: "finder",
-  },
-  {
-    id: 3,
-    name: "Contact",
-    type: "contact",
-  },
-  {
-    id: 4,
-    name: "Skills",
-    type: "skills",
-  },
-  {
-    id: 5,
-    name: "Resume",
-    type: "resume",
-  },
-];
-
-export const navIcons = [
-  {
-    id: 1,
-    img: "/src/assets/icons/wifi.svg",
-  },
-  {
-    id: 2,
-    img: "/src/assets/icons/search.svg",
-  },
-  {
-    id: 3,
-    img: "/src/assets/icons/user.svg",
-  },
-  {
-    id: 4,
-    img: "/src/assets/icons/mode.svg",
-  },
-];
-
-// finder app data
 export const SIDEBAR_ITEMS = [
   {
     category: "Favorites",
@@ -88,15 +45,15 @@ export const SIDEBAR_ITEMS = [
         id: "drive",
         label: "iCloud Drive",
         icon: Cloud,
-        color: "text-blue-300",
+        color: "text-blue-400",
       },
     ],
   },
   {
     category: "Tags",
     items: [
-      { id: "red", label: "Important", icon: Tag, color: "text-red-500" },
-      { id: "orange", label: "Work", icon: Tag, color: "text-orange-500" },
+      { id: "red", label: "Important", icon: Tag, color: "text-red-400" },
+      { id: "orange", label: "Work", icon: Tag, color: "text-orange-400" },
     ],
   },
 ];
@@ -143,5 +100,34 @@ export const PROJECTS = [
     desc: "Browser-based sprite editor for game devs.",
     tags: ["Canvas API", "React"],
     color: "bg-gradient-to-br from-pink-400 to-rose-500",
+  },
+];
+
+export const MY_SKILLS = [
+  {
+    category: "frontend",
+    skills: [
+      { label: "JavaScript.js", icon: "javascript.png" },
+      { label: "TypeScript.ts", icon: "typescript.png" },
+      { label: "React.js", icon: "react.png" },
+      { label: "CSS", icon: "css.png" },
+      { label: "Tailwind.css", icon: "less.png" },
+    ],
+  },
+  {
+    category: "backend",
+    skills: [
+      { label: "Node.js", icon: "sh.png" },
+      { label: "Express.js", icon: "JSON.png" },
+      { label: "Next.js", icon: "javascript.png" },
+    ],
+  },
+  {
+    category: "tools",
+    skills: [
+      { label: "Git", icon: "javascript.png" },
+      { label: "Github", icon: "javascript.png" },
+      { label: "CI/CD", icon: "javascript.png" },
+    ],
   },
 ];

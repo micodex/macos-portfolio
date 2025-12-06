@@ -31,9 +31,7 @@ const Window = ({ app }: WindowProps) => {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging) return;
-      // We could update global state here, but for performance,
-      // it's often better to update local DOM style and only sync on MouseUp.
-      // For this MVP, we will sync via dispatch to keep it simple:
+
       dispatch({
         type: "UPDATE_POS",
         id: app.id,
@@ -41,12 +39,14 @@ const Window = ({ app }: WindowProps) => {
         y: e.clientY - dragOffset.current.y,
       });
     };
+    // stop dragging
     const handleMouseUp = () => setIsDragging(false);
 
     if (isDragging) {
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseup", handleMouseUp);
     }
+    // clean up events
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
@@ -57,25 +57,26 @@ const Window = ({ app }: WindowProps) => {
 
   const style: React.CSSProperties = {
     left: app.isMaximized ? 0 : app.x,
-    top: app.isMaximized ? 32 : app.y, // 32px to account for Navbar
-    width: app.isMaximized ? "100%" : app.width, // use auto for dynamic width
+    top: app.isMaximized ? "2.5rem" : app.y, // 40px ( h-10 or 2.5rem) height of the Navbar
+    width: app.isMaximized ? "100%" : app.width, // use 'auto' for dynamic width
     height: app.isMaximized ? "calc(100% - 32px)" : app.height,
     zIndex: app.z,
     transform: app.isMinimized ? "translate(0, 500px) scale(0)" : "none",
     opacity: app.isMinimized ? 0 : 1,
     transition: isDragging ? "none" : "all 0.3s cubic-bezier(0.25,0.8,0.25,1)",
-    borderRadius: app.isMaximized ? 0 : "0.75rem",
+    borderRadius: app.isMaximized ? 0 : "1rem",
   };
 
   return (
     <div
-      className="absolute bg-white/70 backdrop-blur-md shadow-2xl overflow-hidden border border-white/20 flex flex-col"
+      className="absolute flex flex-col shadow-[0_0_35px_rgba(0,0,0,0.15)] overflow-hidden border border-white/20"
       style={style}
       onMouseDown={() => dispatch({ type: "FOCUS", id: app.id })}
     >
       {/* Header */}
+      {/* bg-linear-to-br from-gray-100/80 to-gray-100/50  border-b border-gray-300/50*/}
       <div
-        className="h-10 bg-linear-to-br from-gray-100/80 to-gray-100/50 border-b border-gray-300/50 flex items-center justify-between px-4 select-none cursor-grab active:cursor-grabbing"
+        className="h-10 flex items-center justify-between px-4 bg-white/70 backdrop-blur-xl select-none cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
         onDoubleClick={() => dispatch({ type: "MAXIMIZE", id: app.id })}
       >
@@ -125,7 +126,7 @@ const Window = ({ app }: WindowProps) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-0">{getAppComponent(app.id)}</div>
+      <div className="flex-1 overflow-y-auto">{getAppComponent(app.id)}</div>
     </div>
   );
 };

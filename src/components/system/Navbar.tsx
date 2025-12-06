@@ -33,17 +33,16 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div>
+      <div className="flex">
         <img src="/logo.svg" alt="logo" />
-        <p className="font-bold">Milad's Portfolio</p>
+        {/* active app */}
+        <span className="font-bold">{title}</span>
 
         <ul>
           {navLinks.map(({ name }) => (
             <li key={name}>{name}</li>
           ))}
         </ul>
-        {/* active app */}
-        <span className="font-bold">{title}</span>
       </div>
 
       <div>

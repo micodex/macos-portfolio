@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 import { appsConfig } from "@/apps.config";
 
-// --- 1. Define Types ---
+// --- types ---
 export interface AppData {
   id: string;
   title: string;
@@ -23,7 +23,6 @@ interface OSState {
   activeAppId: string | null;
 }
 
-// --- 2. Define Actions (The commands you can send) ---
 type Action =
   | { type: "OPEN"; id: string }
   | { type: "CLOSE"; id: string }
@@ -32,6 +31,7 @@ type Action =
   | { type: "FOCUS"; id: string }
   | { type: "UPDATE_POS"; id: string; x: number; y: number };
 
+// create initial apps from apps.config file
 const initialApps: AppData[] = appsConfig.map((app, index) => ({
   id: app.id,
   title: app.title,
@@ -39,24 +39,24 @@ const initialApps: AppData[] = appsConfig.map((app, index) => ({
   isOpen: index === 0, // open the first app by default
   isMaximized: false,
   isMinimized: false,
-  x: 100 + index * 30,
-  y: 50 + index * 30,
+  x: 100 + index * 50, // add 50px to the next app
+  y: 50 + index * 50,
   z: index + 1,
   width: app.width,
   height: app.height,
 }));
 
+// --- main app state ---
 const initialState: OSState = {
   apps: initialApps,
   maxZ: 10,
   activeAppId: "safari",
 };
 
-// --- 4. The Reducer (The Brain) ---
+// --- reducer to send actions ---
 const osReducer = (state: OSState, action: Action): OSState => {
   switch (action.type) {
     case "OPEN": {
-      // Logic: If closed, open it. If minimized, restore. Always bring to front.
       const nextZ = state.maxZ + 1;
       return {
         ...state,
@@ -117,7 +117,7 @@ const osReducer = (state: OSState, action: Action): OSState => {
   }
 };
 
-// --- 5. Create Context ---
+// --- create context ---
 const OSContext = createContext<
   { state: OSState; dispatch: React.Dispatch<Action> } | undefined
 >(undefined);

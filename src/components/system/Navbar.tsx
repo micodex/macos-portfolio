@@ -27,7 +27,6 @@ const Navbar = () => {
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
-      second: "numeric",
     });
   };
 
@@ -36,11 +35,13 @@ const Navbar = () => {
       <div className="flex">
         <img src="/logo.svg" alt="logo" />
         {/* active app */}
-        <span className="font-bold">{title}</span>
+        <span className="hover-effect font-bold">{title}</span>
 
         <ul>
           {navLinks.map(({ name }) => (
-            <li key={name}>{name}</li>
+            <li key={name}>
+              <span className="hover-effect">{name}</span>
+            </li>
           ))}
         </ul>
       </div>
@@ -49,7 +50,11 @@ const Navbar = () => {
         <ul>
           {navIcons.map(({ id, img }) => (
             <li key={id}>
-              <img src={img} alt={`icon-${id}`} className="icon-hover" />
+              <img
+                src={img}
+                alt={`icon-${id}`}
+                className="hover-effect icon-hover"
+              />
             </li>
           ))}
         </ul>

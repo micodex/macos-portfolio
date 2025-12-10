@@ -19,6 +19,10 @@ body {
 }
 
 @layer base {
+  mark {
+    @apply bg-yellow-200/70 text-yellow-950 rounded-sm px-1 py-px;
+  }
+
   body {
     /* default text color */
     @apply text-gray-800;

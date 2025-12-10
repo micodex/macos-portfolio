@@ -52,7 +52,7 @@ export const appsConfig: AppConfig[] = [
     title: "Notes",
     icon: "notes.webp",
     width: 500,
-    height: 350,
+    height: 450,
     component: <NoteApp />,
   },
   {

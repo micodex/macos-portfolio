@@ -5,7 +5,7 @@ import Navbar from "@/components/system/Navbar";
 import Dock from "@/components/system/Dock";
 
 import { useState } from "react";
-import { useOS } from "@/context/OSContext";
+import { useOS } from "@/context/useOS";
 import ControlCenter from "./components/system/ControlCenter/ControlCenter";
 
 function Desktop() {

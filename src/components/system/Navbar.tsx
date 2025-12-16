@@ -1,4 +1,4 @@
-import { useOS } from "@/context/OSContext";
+import { useOS } from "@/context/useOS";
 
 import { navIcons, navLinks } from "@/data/navbar";
 import { useEffect, useState } from "react";

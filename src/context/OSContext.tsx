@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 import { appsConfig } from "@/apps.config";
 
@@ -36,7 +36,7 @@ const initialApps: AppData[] = appsConfig.map((app, index) => ({
   id: app.id,
   title: app.title,
   icon: app.icon,
-  isOpen: index === 0, // open the first app by default
+  isOpen: false, // or < index === 0 >to open the first app by default
   isMaximized: false,
   isMinimized: false,
   x: 100 + index * 50, // add 50px to the next app
@@ -118,7 +118,7 @@ const osReducer = (state: OSState, action: Action): OSState => {
 };
 
 // --- create context ---
-const OSContext = createContext<
+export const OSContext = createContext<
   { state: OSState; dispatch: React.Dispatch<Action> } | undefined
 >(undefined);
 
@@ -130,11 +130,4 @@ export const OSProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </OSContext.Provider>
   );
-};
-
-// Custom Hook for easy access
-export const useOS = () => {
-  const context = useContext(OSContext);
-  if (!context) throw new Error("useOS must be used within an OSProvider");
-  return context;
 };

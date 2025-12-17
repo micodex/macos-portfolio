@@ -1,6 +1,7 @@
 import { NOTE_LINKS } from "@/data/note";
 import { customScrollbar } from "@/lib/scrollbar";
-import noteImage from "@/assets/images/profile.jpg";
+import ProfileImg from "@/assets/images/profile.jpg";
+import NoteImg from "@/assets/graphic/notes-icon.png";
 
 import * as motion from "motion/react-client";
 
@@ -11,7 +12,7 @@ const NoteApp = () => {
     >
       {/* note graphic */}
       <div className="absolute w-16 left-100 top-22 rotate-20">
-        <img src="src/assets/graphic/notes-icon.png" alt="icon" />
+        <img src={NoteImg} alt="note icon" />
       </div>
 
       <span className="mb-4 block text-sm text-center text-gray-600">
@@ -27,7 +28,7 @@ const NoteApp = () => {
         >
           <img
             draggable={false}
-            src={noteImage}
+            src={ProfileImg}
             alt="profile picture"
             className="select-none opacity-89 w-full"
           />

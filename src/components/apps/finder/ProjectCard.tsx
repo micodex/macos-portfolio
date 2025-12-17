@@ -5,7 +5,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <div className="group flex flex-col justify-center gap-2 p-2 rounded-xl hover:bg-blue-50 cursor-pointer transition-colors duration-100 hover:outline-2 outline-blue-100">
       {/* thumbnail */}
-
       {project.image ? (
         <a
           href={project.github}
@@ -14,7 +13,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           className="flex flex-1"
         >
           <img
-            src={project.image}
+            src={`${import.meta.env.BASE_URL}${project.image}`}
             alt={`${project.title} thumbnail`}
             draggable={false}
             loading="lazy"

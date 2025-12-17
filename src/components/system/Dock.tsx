@@ -207,7 +207,7 @@ export default function Dock({
             <DockIcon>
               <img
                 loading="lazy"
-                src={`/dock-icons/${item.icon}`}
+                src={`${import.meta.env.BASE_URL}dock-icons/${item.icon}`}
                 alt={`${item.title} icon`}
                 draggable={false}
                 className="select-none"

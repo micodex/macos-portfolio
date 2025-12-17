@@ -74,7 +74,7 @@ export const SkillsTab = () => (
               <div className="w-16">
                 <img
                   draggable={false}
-                  src={`/files/${icon}`}
+                  src={`${import.meta.env.BASE_URL}files/${icon}`}
                   alt={`${label} icon`}
                   loading="lazy"
                 />

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { type ControlItem } from "./controls.config";
 import { Pause, Play, SkipBack, SkipForward } from "lucide-react";
+import coverImg from "@/assets/graphic/album-cover.jpg";
 
 // circualr control (1x1)
 export const CircularControl = ({ data }: { data: ControlItem }) => {
   const [active, setActive] = useState(data.isActive);
+  const Icon = data.icon;
 
   const handleClick = () => {
     setActive(!active);
@@ -23,7 +25,7 @@ export const CircularControl = ({ data }: { data: ControlItem }) => {
         }
       `}
     >
-      <data.icon size={24} />
+      {Icon ? <Icon size={24} /> : null}
     </button>
   );
 };
@@ -31,6 +33,7 @@ export const CircularControl = ({ data }: { data: ControlItem }) => {
 // wide control (2x1)
 export const WideControl = ({ data }: { data: ControlItem }) => {
   const [active, setActive] = useState(data.isActive);
+  const Icon = data.icon;
 
   const handleClick = () => {
     setActive(!active);
@@ -51,7 +54,7 @@ export const WideControl = ({ data }: { data: ControlItem }) => {
         ${active ? "bg-white text-blue-500" : "bg-black/20"}
       `}
       >
-        <data.icon size={16} />
+        {Icon ? <Icon size={16} /> : null}
       </div>
       <div className="flex flex-col items-start">
         <span className="text-xs font-bold">{data.label}</span>
@@ -64,6 +67,7 @@ export const WideControl = ({ data }: { data: ControlItem }) => {
 // slider control (4x1)
 export const SliderControl = ({ data }: { data: ControlItem }) => {
   const [val, setVal] = useState(data.defaultValue || 50);
+  const Icon = data.icon;
 
   return (
     <div className="liquid-glass w-full h-16 bg-black/10 rounded-3xl p-3">
@@ -72,7 +76,7 @@ export const SliderControl = ({ data }: { data: ControlItem }) => {
       </div>
       <div className="flex items-center">
         <div className="flex-none px-2 text-gray-100">
-          <data.icon size={16} />
+          {Icon ? <Icon size={16} /> : null}
         </div>
 
         <div className="relative h-2 flex-1 bg-black/20 rounded-full overflow-hidden flex items-center group">
@@ -92,7 +96,7 @@ export const SliderControl = ({ data }: { data: ControlItem }) => {
         </div>
 
         <div className="flex-none px-2 text-gray-100">
-          <data.icon size={16} />
+          {Icon ? <Icon size={16} /> : null}
         </div>
       </div>
     </div>
@@ -107,7 +111,7 @@ export const MusicControl = () => {
     <div className="liquid-glass h-full w-full bg-black/20 rounded-4xl p-3 flex flex-col justify-between text-white">
       {/* image cover */}
       <div className="w-12 h-12 rounded-2xl shadow-lg shrink-0 overflow-hidden">
-        <img draggable={false} src="/album-cover.jpg" className="" />
+        <img draggable={false} src={coverImg} className="" />
       </div>
 
       <div className="">

@@ -43,7 +43,7 @@ const Navbar = ({ onToggleCC }: { onToggleCC: () => void }) => {
   return (
     <nav>
       <div className="flex">
-        <img src="/logo.svg" alt="logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.svg`} alt="logo" />
         {/* active app */}
         <span className="hover-effect font-bold">{title}</span>
 
@@ -62,7 +62,7 @@ const Navbar = ({ onToggleCC }: { onToggleCC: () => void }) => {
             <li key={id}>
               <button onClick={() => handleClick(id)}>
                 <img
-                  src={img}
+                  src={`${import.meta.env.BASE_URL}${img}`}
                   alt={`icon-${id}`}
                   className="hover-effect icon-hover"
                 />

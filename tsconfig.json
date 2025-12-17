@@ -1,14 +1,104 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
+    /* ============================
+      Language & Runtime Target
+       ============================ */
+
+    // JavaScript version TypeScript outputs types for
+    // ES2020 is perfect for modern browsers and Vite
+    "target": "ES2020",
+
+    // Standard libraries available in the project
+    // DOM → browser APIs
+    // DOM.Iterable → for loops over DOM collections
+    // ES2020 → modern JS features
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+
+
+    /* ============================
+      Module System (CRITICAL)
+       ============================ */
+
+    // Use modern ES modules (required for import.meta.env)
+    "module": "ESNext",
+
+    // Let Vite (the bundler) resolve modules
+    // Fixes many issues with ESM packages and libraries like framer-motion
+    "moduleResolution": "Bundler",
+
+
+    /* ============================
+      React & JSX
+       ============================ */
+
+    // Use the new JSX transform (React 17+)
+    // No need to import React in every file
     "jsx": "react-jsx",
+
+
+    /* ============================
+      Paths & Aliases
+       ============================ */
+
+    // Base directory for absolute imports
     "baseUrl": ".",
+
+    // Path alias so you can do: import x from "@/components/x"
     "paths": {
       "@/*": ["src/*"]
     },
-    
-    "noEmit": true, // vite already transpiles TS to JS using esbuild
-    "skipLibCheck": true // Skip lib type checking for framer type errors!
+
+
+    /* ============================
+      Build Behavior
+       ============================ */
+
+    // Prevent TypeScript from emitting JS files
+    // Vite handles the build output
+    "noEmit": true,
+
+    // Ensures each file can be transpiled independently
+    // Required for Vite Fast Refresh & ESM correctness
+    "isolatedModules": true,
+
+
+    /* ============================
+      Interoperability
+       ============================ */
+
+    // Allows default imports from CommonJS modules
+    "esModuleInterop": true,
+
+    // Allows synthetic default imports (helps with some libraries)
+    "allowSyntheticDefaultImports": true,
+
+
+    /* ============================
+      Type Safety & Performance
+       ============================ */
+
+    // Enables all strict type-checking rules
+    // Recommended for production projects
+    "strict": true,
+
+    // Skips type checking of node_modules
+    // Speeds up builds and avoids third-party type issues
+    "skipLibCheck": true,
+
+
+    /* ============================
+      Global Types
+       ============================ */
+
+    // Explicitly include Vite + React type definitions
+    // IMPORTANT: When "types" is set, only these are included
+    "types": ["vite/client", "react", "react-dom"]
   },
+
+  /* ============================
+    Files to include
+     ============================ */
+
+  // Only type-check source files
   "include": ["src"]
 }

@@ -1,5 +1,4 @@
 import { Controls } from "./controls.config";
-
 import {
   CircularControl,
   WideControl,
@@ -10,9 +9,12 @@ import {
 const ControlCenter = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div
-      className={`fixed top-14 right-4 w-76 z-100 animate-in
-        slide-in-from-top-4 fade-in duration-200 select-none
-        ${isOpen ? "visible" : "hidden"}
+      className={`fixed top-14 right-4 w-74 not-first-of-type: z-100 select-none transition-all
+        ${
+          isOpen
+            ? "visible opacity-100 scale-100"
+            : "invisible opacity-0 scale-95"
+        }
       `}
     >
       {/* bento grid */}

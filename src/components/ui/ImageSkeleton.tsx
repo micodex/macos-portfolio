@@ -11,10 +11,6 @@ const ImageSkeleton = ({ src, alt, className }: ImageSkeletonProps) => {
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      {loading && (
-        <div className="absolute inset-0 bg-sky-200/50 animate-pulse"></div>
-      )}
-
       <img
         src={src}
         alt={alt}
@@ -23,8 +19,12 @@ const ImageSkeleton = ({ src, alt, className }: ImageSkeletonProps) => {
         loading="lazy"
         draggable="false"
         onLoad={() => setLoading(false)}
-        // onError={() => setLoading(false)}
+        onError={() => setLoading(false)}
       />
+
+      {loading && (
+        <div className="absolute inset-0 bg-sky-200/50 animate-pulse"></div>
+      )}
     </div>
   );
 };

@@ -36,7 +36,7 @@ const NoteApp = () => {
           <ImageSkeleton
             src={ProfileImg}
             alt="profile picture"
-            className="select-none opacity-89 w-full"
+            className="select-none opacity-89 w-full aspect-square"
           />
         </motion.div>
 

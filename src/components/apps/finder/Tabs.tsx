@@ -9,9 +9,11 @@ import profilePic from "@/assets/images/profile.jpg";
 export const AboutTab = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full text-center p-8 text-gray-500 space-y-4">
-      <div className="w-28 h-28 overflow-hidden rounded-full flex items-center justify-center mb-4">
-        <ImageSkeleton src={profilePic} alt="profile image" />
-      </div>
+      <ImageSkeleton
+        src={profilePic}
+        alt="profile image"
+        className="aspect-square w-28 overflow-hidden rounded-full mb-4"
+      />
       <h2 className="text-2xl font-bold text-gray-800">Milad Gharibi</h2>
       <p className="max-w-md">
         I am a creative developer building interfaces that feel alive. Welcome
@@ -70,13 +72,11 @@ export const SkillsTab = () => (
                 hover:bg-gray-100 hover:outline outline-gray-200
                 transition-colors ease-in"
             >
-              <div className="w-16">
-                <ImageSkeleton
-                  src={`${import.meta.env.BASE_URL}files/${icon}`}
-                  alt={`${label} icon`}
-                  className="w-16"
-                />
-              </div>
+              <ImageSkeleton
+                src={`${import.meta.env.BASE_URL}files/${icon}`}
+                alt={`${label} icon`}
+                className="w-16 aspect-9/10"
+              />
               <div className="text-sm font-medium text-gray-700 text-center">
                 <span className="block group-hover:text-blue-600">{label}</span>
                 <span className="text-xs text-gray-400">{level}</span>

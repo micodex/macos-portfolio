@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <ImageSkeleton
             src={`${import.meta.env.BASE_URL}${project.image}`}
             alt={`${project.title} thumbnail`}
-            className="w-80 self-center"
+            className="w-80 self-center aspect-4/3"
           />
         </a>
       ) : (
@@ -29,7 +29,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <ImageSkeleton
             src={folderImage}
             alt="thumbnail"
-            className="w-40 self-center"
+            className="w-40 self-center aspect-square"
           />
         </div>
       )}

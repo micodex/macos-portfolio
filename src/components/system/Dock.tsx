@@ -209,7 +209,7 @@ export default function Dock({
               <ImageSkeleton
                 src={`${import.meta.env.BASE_URL}dock-icons/${item.icon}`}
                 alt={`${item.title} icon`}
-                className="select-none"
+                className="aspect-square rounded-xl"
               />
             </DockIcon>
 

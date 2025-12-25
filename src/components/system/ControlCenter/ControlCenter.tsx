@@ -1,6 +1,7 @@
 import { Controls } from "./controls.config";
-import { CircularControl, WideControl, SliderControl } from "./ControlWidgets";
+import { CircularControl, WideControl } from "./ControlWidgets";
 import MusicControl from "./MusicControl";
+import SliderControl from "./SliderControl";
 
 const ControlCenter = ({ isOpen }: { isOpen: boolean }) => {
   return (

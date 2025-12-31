@@ -16,7 +16,7 @@ const MailApp = () => {
             <div key={label}>
               <a
                 href={url}
-                target={label === "Email" ? null : "_blank"}
+                target={label === "Email" ? "" : "_blank"}
                 rel="noopener noreferrer"
                 className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-md text-sm transition-colors duration-150 
                 ${

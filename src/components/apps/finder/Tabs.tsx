@@ -35,9 +35,7 @@ export const ProjectsTab = ({ mode }: { mode: "grid" | "list" }) => (
         2025 Projects
       </h2>
       <div
-        className={`${
-          mode === "grid" ? "grid grid-cols-4 gap-4 text-center" : "block"
-        }`}
+        className={`${mode === "grid" ? "grid grid-cols-4 gap-4" : "block"}`}
       >
         {PROJECTS.map((p) => (
           <ProjectCard key={p.id} project={p} />

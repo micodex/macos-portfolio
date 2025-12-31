@@ -1,6 +1,6 @@
-import { type Project } from "@/data/finder";
-import folderImage from "@/assets/images/folder.png";
 import ImageSkeleton from "@/components/ui/ImageSkeleton";
+import folderImage from "@/assets/images/folder.png";
+import { type Project } from "@/data/finder";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -15,12 +15,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-1"
+          className="relative flex flex-1"
         >
           <ImageSkeleton
             src={`${import.meta.env.BASE_URL}${project.image}`}
             alt={`${project.title} thumbnail`}
-            className="w-80 self-center aspect-4/3 shadow-lg"
+            className="w-80 self-center aspect-4/3 shadow-md"
           />
         </a>
       ) : (

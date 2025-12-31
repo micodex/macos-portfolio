@@ -14,7 +14,7 @@ const ProjectPage = ({ project }: { project: Project }) => (
       {/* Project Screenshot */}
       <div className="relative w-200">
         <ImageSkeleton
-          src={project.image}
+          src={`${import.meta.env.BASE_URL}${project.image}`}
           alt={`${project.title} screenshot`}
           className="aspect-video"
         />

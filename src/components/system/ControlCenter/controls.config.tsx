@@ -1,12 +1,12 @@
 import {
-  Moon,
   Sun,
+  Lock,
+  Moon,
   Wifi,
-  Bluetooth,
-  Maximize,
   Monitor,
   Volume2,
-  Shield,
+  Maximize,
+  Bluetooth,
   type LucideIcon,
 } from "lucide-react";
 
@@ -39,11 +39,11 @@ const toggleFullScreen = () => {
 export const Controls: ControlItem[] = [
   // row 1: focus mode (2x1) & music (Square)
   {
-    id: "focus",
+    id: "theme",
     type: "wide",
-    label: "Focus",
+    label: "Dark",
     icon: Moon,
-    isActive: true,
+    isActive: false,
     colSpan: "col-span-2",
     action: () => console.log("Focus Toggled"),
   },
@@ -90,7 +90,7 @@ export const Controls: ControlItem[] = [
     icon: Wifi,
     isActive: true,
     colSpan: "col-span-1",
-    action: () => console.log("Wifi Toggle"),
+    action: () => console.log("Wifi Toggled"),
   },
   {
     id: "bluetooth",
@@ -98,7 +98,7 @@ export const Controls: ControlItem[] = [
     icon: Bluetooth,
     isActive: false,
     colSpan: "col-span-1",
-    action: () => console.log("BT Toggle"),
+    action: () => console.log("BT Toggled"),
   },
   {
     id: "fullscreen",
@@ -109,11 +109,11 @@ export const Controls: ControlItem[] = [
     action: toggleFullScreen,
   },
   {
-    id: "security",
+    id: "lock",
     type: "circular",
-    icon: Shield,
+    icon: Lock,
     isActive: false,
     colSpan: "col-span-1",
-    action: () => console.log("Security Check"),
+    action: () => console.log("Lock Toggled"),
   },
 ];

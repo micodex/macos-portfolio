@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ControlItem } from "./controls.config";
+import { type ControlItem } from "../controls.config";
 import { audio } from "@/lib/music";
 
 // slider control (4x1)
